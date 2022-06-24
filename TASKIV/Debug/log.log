@@ -1,0 +1,58 @@
+T: Fri Jun 24 20:55:47 2022 M: Plik log otwarty
+T: Fri Jun 24 20:55:47 2022 M: Nie podano œcie¿ek plików
+T: Fri Jun 24 20:55:47 2022 M: Tworzê pliki testowe
+T: Fri Jun 24 20:55:47 2022 M: Pliki zosta³y stworzone
+T: Fri Jun 24 20:55:47 2022 M: Plik log zamkniety
+T: Fri Jun 24 20:56:57 2022 M: Plik log otwarty
+T: Fri Jun 24 20:56:57 2022 M: Nie podano œcie¿ek plików
+T: Fri Jun 24 20:56:57 2022 M: Tworzê pliki testowe
+T: Fri Jun 24 20:56:57 2022 M: Pliki zosta³y stworzone
+T: Fri Jun 24 20:56:57 2022 M: Plik log zamkniety
+T: Fri Jun 24 20:58:08 2022 M: Plik log otwarty
+T: Fri Jun 24 20:58:08 2022 M: Nie podano œcie¿ek plików
+T: Fri Jun 24 20:58:08 2022 M: Tworzê pliki testowe
+T: Fri Jun 24 20:58:08 2022 M: Pliki zosta³y stworzone
+T: Fri Jun 24 20:58:08 2022 M: Plik log zamkniety
+T: Fri Jun 24 21:08:11 2022 M: Plik log otwarty
+T: Fri Jun 24 21:08:11 2022 M: Nie podano sciezek plikow
+T: Fri Jun 24 21:08:11 2022 M: Tworze pliki testowe
+T: Fri Jun 24 21:08:11 2022 M: Pliki zostaly stworzone
+T: Fri Jun 24 21:08:11 2022 M: Plik log zamkniety
+T: Fri Jun 24 21:08:25 2022 M: Plik log otwarty
+T: Fri Jun 24 21:08:25 2022 M: Nie podano sciezek plikow
+T: Fri Jun 24 21:08:25 2022 M: Tworze pliki testowe
+T: Fri Jun 24 21:08:31 2022 M: Plik log otwarty
+T: Fri Jun 24 21:08:31 2022 M: Nie podano sciezek plikow
+T: Fri Jun 24 21:08:31 2022 M: Tworze pliki testowe
+T: Fri Jun 24 21:11:29 2022 M: Pliki zostaly stworzone
+T: Fri Jun 24 21:11:29 2022 M: Plik log zamkniety
+T: Fri Jun 24 21:12:55 2022 M: Plik log otwarty
+T: Fri Jun 24 21:12:55 2022 M: Przetwarzanie plików
+T: Fri Jun 24 21:12:55 2022 M: Obliczam BER
+T: Fri Jun 24 21:12:55 2022 M: Obliczenia BER zakonczyly sie
+T: Fri Jun 24 21:12:55 2022 M: Wyniki: 
+BER: 0.0125
+Tot: 800
+Err: 10
+Czas kalkulacji: 0 sec 
+T: Fri Jun 24 21:12:55 2022 M: Plik log zamkniety
+T: Fri Jun 24 21:13:04 2022 M: Plik log otwarty
+T: Fri Jun 24 21:13:04 2022 M: Przetwarzanie plików
+T: Fri Jun 24 21:13:04 2022 M: Obliczam BER
+T: Fri Jun 24 21:13:04 2022 M: Obliczenia BER zakonczyly sie
+T: Fri Jun 24 21:13:04 2022 M: Wyniki: 
+BER: 0
+Tot: 800
+Err: 0
+Czas kalkulacji: 0 sec 
+T: Fri Jun 24 21:13:04 2022 M: Plik log zamkniety
+T: Fri Jun 24 21:13:12 2022 M: Plik log otwarty
+T: Fri Jun 24 21:13:12 2022 M: Przetwarzanie plików
+T: Fri Jun 24 21:13:12 2022 M: Obliczam BER
+T: Fri Jun 24 21:20:04 2022 M: Obliczenia BER zakonczyly sie
+T: Fri Jun 24 21:20:04 2022 M: Wyniki: 
+BER: 0.25
+Tot: 3.2e+09
+Err: 8e+08
+Czas kalkulacji: 411.769 sec 
+T: Fri Jun 24 21:20:04 2022 M: Plik log zamkniety
