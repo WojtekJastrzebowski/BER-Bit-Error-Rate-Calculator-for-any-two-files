@@ -113,3 +113,55 @@ void createFile1(const std::string name, const int count, const char value)
     }
     f.close();
 }
+
+berResults calculateBer(std::string fpath1, std::string fpath2)
+{
+    std::fstream f1, f2;
+    berResults results;
+    results.t1 = 0;
+    results.t2 = 0;
+    results.ber = 0;
+    results.err = 0;
+    results.tot = 0;
+
+    saveLog("Obliczam BER");
+
+    f1.open(fpath1.c_str(), std::ios::binary | std::ios::in);
+    f2.open(fpath2.c_str(), std::ios::binary | std::ios::in);
+
+    char a = 0x00;
+    char b = 0x00;
+    results.t1 = clock();
+
+    if (!f1) {
+        saveLog("Blad pliku pierwszego");
+    }
+    if (!f2) {
+        saveLog("Blad pliku drugiego");
+    }
+    while (!f1.eof())
+    {
+        f1 >> a;
+        f2 >> b;
+        if (f1.eof()) { break; }
+        results.err += hammingDistance(a, b);
+        results.tot += 8;
+
+    }
+
+    results.ber = (float)results.err / results.tot; // obliczanie ber
+    results.t2 = clock();
+    saveLog("BER calculations are done");
+    return results; //zwracanie rezultatów
+}
+
+void printResult(berResults results)
+{
+    std::stringstream message;
+    message << "Results are: " << std::endl;
+    message << "BER: " << results.ber << std::endl;
+    message << "Tot: " << results.tot << std::endl;
+    message << "Err: " << results.err << std::endl;
+    message << "Calc time: " << ((float)results.t2 - results.t1) / CLOCKS_PER_SEC << " sec " << std::endl;
+    saveLog(message.str());
+}
