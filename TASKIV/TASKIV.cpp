@@ -36,7 +36,7 @@ void openLog(std::string fileName)
     logFile.open(fileName.c_str(), std::ios_base::app);
     if (!logFile.good() == true)
     {
-        std::cout << "Nie mozna otworzyÄ‡ pliku log" << "log.txt" << std::endl;
+        std::cout << "Nie mozna otworzyc pliku log" << "log.txt" << std::endl;
     }
     saveLog("Plik log otwarty");
 }
@@ -63,8 +63,8 @@ int main(int argc, char** argv)
     if (argc != 3)  //argumenty niepoprawne
     {
 
-        saveLog("Nie podano ścieżek plików");
-        saveLog("Tworzę pliki testowe");
+        saveLog("Nie podano sciezek plikow");
+        saveLog("Tworze pliki testowe");
         //test 1
         createFile1("test1_file1.bin", 100, 0x55);
         createFile1("test1_file2.bin", 100, 0x55);
@@ -77,11 +77,11 @@ int main(int argc, char** argv)
         //test 2
 
         //test 3
-        //createFile1("test3_file1.bin", 400000000, 0x55);
-        //createFile1("test3_file2.bin", 400000000, 0x50);
+        createFile1("test3_file1.bin", 400000000, 0x55);
+        createFile1("test3_file2.bin", 400000000, 0x50);
         //test 3
 
-        saveLog("Pliki zostały stworzone");
+        saveLog("Pliki zostaly stworzone");
     }
     else //argumenty poprawne
     {
@@ -173,7 +173,7 @@ berResults calculateBer(std::string fpath1, std::string fpath2)
 
     results.ber = (float)results.err / results.tot; // obliczanie ber
     results.t2 = clock();
-    saveLog("BER calculations are done");
+    saveLog("Obliczenia BER zakonczyly sie");
     return results; //zwracanie rezultatów
 }
 
