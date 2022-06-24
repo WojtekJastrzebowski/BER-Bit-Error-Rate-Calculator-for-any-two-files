@@ -66,18 +66,19 @@ int main(int argc, char** argv)
         saveLog("Nie podano ścieżek plików");
         saveLog("Tworzę pliki testowe");
         //test 1
-        createFile1("test1_file1.bin", 100, 0xFF); //1111 1111
-        createFile1("test1_file2.bin", 100, 0xFE); //1111 1110
+        createFile1("test1_file1.bin", 100, 0x55);
+        createFile1("test1_file2.bin", 100, 0x55);
         //test 1
 
         //test 2
-
+        createFile1("test2_file1.bin", 100, 0x55);
+        createFile1("test2_file2.bin", 98, 0x55);
         //test 2
         //test 2
 
         //test 3
-        createFile1("test3_file1.bin", 400000000, 0x55);
-        createFile1("test3_file2.bin", 400000000, 0x50);
+        //createFile1("test3_file1.bin", 400000000, 0x55);
+        //createFile1("test3_file2.bin", 400000000, 0x50);
         //test 3
 
         saveLog("Pliki zostały stworzone");
@@ -112,10 +113,26 @@ void createFile1(const std::string name, const int count, const char value)
 {
     std::fstream f;
     f.open(name.c_str(), std::ios::binary | std::ios::out);
-    for (int i = 0; i < count; i++)
+    unsigned char num1(0xEE);
+    unsigned char num2(0x1E);
+
+    if (count == 98)
     {
-        f.write((char*)&value, 1);
+        for (int i = 0; i < count; i++)
+        {
+            f.write((char*)&value, 1);
+        }
+        f.write((char*)&num1, 1);
+        f.write((char*)&num2, 1);
     }
+    else
+    {
+        for (int i = 0; i < count; i++)
+        {
+            f.write((char*)&value, 1);
+        }
+    };
+    
     f.close();
 }
 
