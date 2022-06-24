@@ -46,3 +46,47 @@ void closeLog(void)
     saveLog("Plik log zamkniety");
     logFile.close();
 }
+
+int main(int argc, char** argv)
+{
+    std::string fpath1;
+    std::string fpath2;
+
+    berResults results;
+
+    openLog("log.log");
+    if (argc != 3)  //argumenty niepoprawne
+    {
+
+        saveLog("Nie podano ścieżek plików");
+        saveLog("Tworzę pliki testowe");
+        //test 1
+        createFile1("test1_file1.bin", 100, 0xFF); //1111 1111
+        createFile1("test1_file2.bin", 100, 0xFE); //1111 1110
+        //test 1
+
+        //test 2
+
+        //test 2
+        //test 2
+
+        //test 3
+        createFile1("test3_file1.bin", 400000000, 0x55);
+        createFile1("test3_file2.bin", 400000000, 0x50);
+        //test 3
+
+        saveLog("Pliki zostały stworzone");
+    }
+    else //argumenty poprawne
+    {
+        fpath1 = argv[1];
+        fpath2 = argv[2];
+
+        saveLog("Przetwarzanie plików");
+        results = calculateBer(fpath1, fpath2);
+        printResult(results);
+    }
+
+    closeLog();
+    return 0;
+}
