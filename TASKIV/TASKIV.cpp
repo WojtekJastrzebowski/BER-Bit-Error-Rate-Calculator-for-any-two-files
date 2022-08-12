@@ -36,14 +36,14 @@ void openLog(std::string fileName)
     logFile.open(fileName.c_str(), std::ios_base::app);
     if (!logFile.good() == true)
     {
-        std::cout << "Nie mozna otworzyc pliku log" << "log.txt" << std::endl;
+        std::cout << "Unable to open log file" << "log.txt" << std::endl;
     }
-    saveLog("Plik log otwarty");
+    saveLog("Open log file");
 }
 
 void closeLog(void)
 {
-    saveLog("Plik log zamkniety");
+    saveLog("Log file closed");
     logFile.close();
 }
 
@@ -60,11 +60,11 @@ int main(int argc, char** argv)
     berResults results;
 
     openLog("log.log");
-    if (argc != 3)  //argumenty niepoprawne
+    if (argc != 3)  //incorrect arguments
     {
 
-        saveLog("Nie podano sciezek plikow");
-        saveLog("Tworze pliki testowe");
+        saveLog("No file paths provided");
+        saveLog("Creating test files");
         //test 1
         createFile1("test1_file1.bin", 100, 0x55);
         createFile1("test1_file2.bin", 100, 0x55);
@@ -81,14 +81,14 @@ int main(int argc, char** argv)
         createFile1("test3_file2.bin", 400000000, 0x50);
         //test 3
 
-        saveLog("Pliki zostaly stworzone");
+        saveLog("The files were created");
     }
-    else //argumenty poprawne
+    else //arguments correct
     {
         fpath1 = argv[1];
         fpath2 = argv[2];
 
-        saveLog("Przetwarzanie plików");
+        saveLog("File processing");
         results = calculateBer(fpath1, fpath2);
         printResult(results);
     }
@@ -146,7 +146,7 @@ berResults calculateBer(std::string fpath1, std::string fpath2)
     results.err = 0;
     results.tot = 0;
 
-    saveLog("Obliczam BER");
+    saveLog("Calculating BER");
 
     f1.open(fpath1.c_str(), std::ios::binary | std::ios::in);
     f2.open(fpath2.c_str(), std::ios::binary | std::ios::in);
@@ -156,10 +156,10 @@ berResults calculateBer(std::string fpath1, std::string fpath2)
     results.t1 = clock();
 
     if (!f1) {
-        saveLog("Blad pliku pierwszego");
+        saveLog("File one error");
     }
     if (!f2) {
-        saveLog("Blad pliku drugiego");
+        saveLog("File two error");
     }
     while (!f1.eof())
     {
@@ -171,19 +171,19 @@ berResults calculateBer(std::string fpath1, std::string fpath2)
 
     }
 
-    results.ber = (float)results.err / results.tot; // obliczanie ber
+    results.ber = (float)results.err / results.tot; // calculating ber
     results.t2 = clock();
-    saveLog("Obliczenia BER zakonczyly sie");
-    return results; //zwracanie rezultatów
+    saveLog("BER calculations concluded");
+    return results; //return results
 }
 
 void printResult(berResults results)
 {
     std::stringstream message;
-    message << "Wyniki: " << std::endl;
+    message << "Results: " << std::endl;
     message << "BER: " << results.ber << std::endl;
     message << "Tot: " << results.tot << std::endl;
     message << "Err: " << results.err << std::endl;
-    message << "Czas kalkulacji: " << ((float)results.t2 - results.t1) / CLOCKS_PER_SEC << " sec ";
+    message << "Calculation Time: " << ((float)results.t2 - results.t1) / CLOCKS_PER_SEC << " sec ";
     saveLog(message.str());
 }
