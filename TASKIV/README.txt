@@ -18,4 +18,9 @@ Requirements for the program :
 
 Give the result of the BER program for the given test files (Results stored in the log file) 
 
-Translated with www.DeepL.com/Translator (free version)
+After the program has created the necessary files, the initialization of the BER counting program is as follows:
+
+./"TASKIV.exe" test2_file1.bin test2_file2.bin
+
+Note that the selected test files must be in the program directory in this case.
+
