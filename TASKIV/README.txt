@@ -1,27 +1,21 @@
-Napisz program ktory oblicza BER (Bit Error Rate) dla dwóch dowolnych plików.
+Write a program that calculates the BER (Bit Error Rate) for any two files.
 
-Swoj¹ pracê utrzymaj na repozytorium na github. 
-
-Twoja praca musi byæ udokumentowana przez kolejne commity.
+Requirements for the program :
 
 
+1. Console program. Takes as two arguments the paths to the files for which it calculates the BER value.
 
-Wymagania dla programu :
+2. The result of the calculation is printed in the console (As the result you specify: Number of bits compared, number of different bits, BER result, calculation time).
 
+3.The program creates a log.txt file in which it saves its logs. Each message starts with a timestamp.
 
+4. Test 1: Prepare two identical files containing the binary stored value 0x55. Each file of 100 Bytes. 
 
-1. Program konsolowy. Jako dwa argumenty przyjmuje œcie¿ki do plików dla których oblicza wartoœæ BER.
+5. Test 2: Prepare two files each of 100 bytes. The first contains the binary stored value 0x55. The second file differs from the first by any 10 bits.
 
-2. Wynik obliczeñ drukowany jest w konsoli (Jako wynik podajemy: Iloœæ porównanych bitów, iloœæ ró¿nych bitów, wynik BER, czas obliczeñ)
-
-3. Program tworzy plik log.txt w którym zapisuje swoje logi. Ka¿da wiadomoœæ rozpoczyna siê od timestamp'a.
-
-4. Test 1: Przygotuj dwa identyczne pliki zawieraj¹ce binarnie zapisan¹ wartoœæ 0x55. Ka¿dy plik po 100 Bajtów. 
-
-5. Test 2: Przygotuj dwa pliki ka¿dy po 100 bajtów. Pierwszy zawiera binarnie zapisan¹ wartoœæ 0x55. Drugi plik ró¿ni siê od pierwszego o dowolne 10 bitów.
-
-6. Test 3: Przygotuje dwa pliki ka¿dy po 400 MB. Pierwszy zawiera binarnie zapisan¹ wartoœæ 0x55. Drugi plik zawiera binarnie zapisan¹ wartoœæ 0x50.
+6. Test 3: Prepare two files each of 400 MB. The first contains the binary stored value 0x55. The second file contains the binary stored value 0x50.
 
 
+Give the result of the BER program for the given test files (Results stored in the log file) 
 
-Podaj wynik dzia³ania programu BER dla podanych plików testowych (Wyniki zapisane w pliku z logami) 
+Translated with www.DeepL.com/Translator (free version)
