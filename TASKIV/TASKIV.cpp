@@ -1,11 +1,12 @@
-﻿#define _CRT_SECURE_NO_DEPRECATE
+#define _CRT_SECURE_NO_DEPRECATE
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>  
 #include <stdio.h>
 
-
+using namespace std;
 
 struct berResults
 {
@@ -16,27 +17,26 @@ struct berResults
     clock_t t2;
 };
 
-std::fstream logFile;
+fstream logFile;
 
-void saveLog(std::string msg)
+void saveLog(string msg)
 {
-    std::string ss;
+    string ss;
     time_t currentTime = time(NULL);
-    std::string txttime = (std::string)asctime(localtime(&currentTime));
+    string txttime = (string)asctime(localtime(&currentTime));
     txttime = txttime.substr(0, txttime.length() - 1);
-    ss = (std::string)"T: " + txttime + " M: " + msg + "\n";
+    ss = (string)"T: " + txttime + " M: " + msg + "\n";
     logFile << ss.c_str();
     logFile.flush();
-    std::cout << ss.c_str();
-    std::cout.flush();
+    cout << ss.c_str();
+    cout.flush();
 }
-
-void openLog(std::string fileName)
+void openLog(string fileName)
 {
-    logFile.open(fileName.c_str(), std::ios_base::app);
+    logFile.open(fileName.c_str(), ios_base::app);
     if (!logFile.good() == true)
     {
-        std::cout << "Unable to open log file" << "log.txt" << std::endl;
+        cout << "Unable to open log file" << "log.txt" << endl;
     }
     saveLog("Open log file");
 }
@@ -48,14 +48,14 @@ void closeLog(void)
 }
 
 uint8_t hammingDistance(uint8_t n1, uint8_t n2);
-void createFile1(const std::string name, const int count, const char value);
-berResults calculateBer(std::string fpath1, std::string fpath2);
+void createFile1(const string name, const int count, const char value);
+berResults calculateBer(string fpath1, string fpath2);
 void printResult(berResults results);
 
 int main(int argc, char** argv)
 {
-    std::string fpath1;
-    std::string fpath2;
+    string fpath1;
+    string fpath2;
 
     berResults results;
 
@@ -109,10 +109,10 @@ uint8_t hammingDistance(uint8_t n1, uint8_t n2)
     return setBits;
 }
 
-void createFile1(const std::string name, const int count, const char value)
+void createFile1(const string name, const int count, const char value)
 {
-    std::fstream f;
-    f.open(name.c_str(), std::ios::binary | std::ios::out);
+    fstream f;
+    f.open(name.c_str(), ios::binary | ios::out);
     unsigned char num1(0xEE);
     unsigned char num2(0x1E);
 
@@ -136,9 +136,9 @@ void createFile1(const std::string name, const int count, const char value)
     f.close();
 }
 
-berResults calculateBer(std::string fpath1, std::string fpath2)
+berResults calculateBer(string fpath1, string fpath2)
 {
-    std::fstream f1, f2;
+    fstream f1, f2;
     berResults results;
     results.t1 = 0;
     results.t2 = 0;
@@ -148,8 +148,8 @@ berResults calculateBer(std::string fpath1, std::string fpath2)
 
     saveLog("Calculating BER");
 
-    f1.open(fpath1.c_str(), std::ios::binary | std::ios::in);
-    f2.open(fpath2.c_str(), std::ios::binary | std::ios::in);
+    f1.open(fpath1.c_str(), ios::binary | ios::in);
+    f2.open(fpath2.c_str(), ios::binary | ios::in);
 
     char a = 0x00;
     char b = 0x00;
@@ -170,7 +170,6 @@ berResults calculateBer(std::string fpath1, std::string fpath2)
         results.tot += 8;
 
     }
-
     results.ber = (float)results.err / results.tot; // calculating ber
     results.t2 = clock();
     saveLog("BER calculations concluded");
@@ -179,11 +178,11 @@ berResults calculateBer(std::string fpath1, std::string fpath2)
 
 void printResult(berResults results)
 {
-    std::stringstream message;
-    message << "Results: " << std::endl;
-    message << "BER: " << results.ber << std::endl;
-    message << "Tot: " << results.tot << std::endl;
-    message << "Err: " << results.err << std::endl;
+    stringstream message;
+    message << "Results: " << endl;
+    message << "BER: " << results.ber << endl;
+    message << "Tot: " << results.tot << endl;
+    message << "Err: " << results.err << endl;
     message << "Calculation Time: " << ((float)results.t2 - results.t1) / CLOCKS_PER_SEC << " sec ";
     saveLog(message.str());
 }
